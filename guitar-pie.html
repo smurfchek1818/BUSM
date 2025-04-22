@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Guitar Types in School Programs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5"></script>
+  </head>
+  <body style="margin: 0; height: 100vh;">
+    <div id="main" style="height: 100vh;"></div>
+    <script>
+      var chart = echarts.init(document.getElementById('main'));
+
+      var option = {
+        title: {
+          text: 'Guitar Types in School Programs',
+          subtext: 'Breakdown by type',
+          left: 'center',
+          top: 20,
+          textStyle: {
+            fontSize: 20
+          }
+        },
+        tooltip: {
+          trigger: 'item',
+          formatter: '{b}: {c}% ({d}%)'
+        },
+        legend: {
+          orient: 'vertical',
+          left: 'left',
+          data: ['Nylon-String Only', 'Steel-String Only', 'Both Types']
+        },
+        series: [
+          {
+            name: 'Guitar Type',
+            type: 'pie',
+            radius: ['40%', '70%'], // donut shape
+            avoidLabelOverlap: false,
+            itemStyle: {
+              borderRadius: 8,
+              borderColor: '#fff',
+              borderWidth: 2
+            },
+            label: {
+              show: true,
+              position: 'outside',
+              formatter: '{b}: {d}%'
+            },
+            labelLine: {
+              show: true
+            },
+            data: [
+              { value: 49, name: 'Nylon-String Only' },
+              { value: 37, name: 'Steel-String Only' },
+              { value: 14, name: 'Both Types' }
+            ]
+          }
+        ]
+      };
+
+      chart.setOption(option);
+    </script>
+  </body>
+</html>
