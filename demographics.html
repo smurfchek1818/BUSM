@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Demographic Engagement in Music Programs</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5"></script>
+  </head>
+  <body style="margin: 0; height: 100vh;">
+    <div id="main" style="height: 100vh;"></div>
+    <script>
+      var chart = echarts.init(document.getElementById('main'));
+
+      var option = {
+        title: {
+          text: 'Demographic Engagement: Traditional vs Modern Band',
+          left: 'center',
+          textStyle: {
+            fontSize: 20
+          }
+        },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: { type: 'shadow' }
+        },
+        legend: {
+          top: '10%',
+          data: ['Traditional Ensembles', 'Modern Band']
+        },
+        grid: {
+          top: '20%',
+          left: '10%',
+          right: '10%',
+          bottom: '10%',
+          containLabel: true
+        },
+        xAxis: {
+          type: 'value',
+          axisLabel: {
+            formatter: '{value} %'
+          }
+        },
+        yAxis: {
+          type: 'category',
+          data: [
+            'Students of Color',
+            'Free/Reduced Lunch',
+            'English Language Learners',
+            'Female Students'
+          ],
+          axisLabel: {
+            fontSize: 14
+          }
+        },
+        series: [
+          {
+            name: 'Traditional Ensembles',
+            type: 'bar',
+            data: [34, 25, 15, 40],
+            barGap: 0,
+            itemStyle: {
+              borderRadius: 4,
+              color: '#73C0DE'
+            }
+          },
+          {
+            name: 'Modern Band',
+            type: 'bar',
+            data: [49, 45, 28, 50],
+            itemStyle: {
+              borderRadius: 4,
+              color: '#FAC858'
+            }
+          }
+        ]
+      };
+
+      chart.setOption(option);
+    </script>
+  </body>
+</html>
